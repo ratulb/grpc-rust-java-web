@@ -1,6 +1,24 @@
 #!/usr/bin/env bash
 first="$1"
 second=$2
+
+if ! command javac -v; then
+  sudo apt-get update
+  sudo apt-get install -y default-jdk
+fi
+if ! command mvn -v; then
+  sudo apt-get install -y maven
+fi
+if ! command cargo -v; then
+  curl https://sh.rustup.rs -sSf | sudo sh -s -- -y
+  source ~/.bashrc
+  sudo apt-get install -y build-essential
+fi
+
+source ~/.bashrc
+
+first="$1"
+second=$2
 set cwd=$(pwd)
 case "$first" in
   java)
