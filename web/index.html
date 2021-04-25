@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" href="styles.css">
+      <title>grpc connect - rust, java, web</title>
+      <script type = "text/JavaScript">
+         function displayHosts(){
+            var host_select = document.getElementById("hosts");
+            var grpc_hosts = ['http://34.87.158.31:10000'];
+            for(var i = 0; i < grpc_hosts.length; i++) {
+                var host = grpc_hosts[i];
+                var hostNum = i+1;
+                var el = document.createElement("option");
+                el.text = 'host:'+ hostNum;
+                el.value = host;
+                host_select.add(el);
+            }
+         }
+         function serverSelect() {
+           var host = document.getElementById("hosts").value;
+           document.getElementById("server_response").innerHTML = "Selected server address: " + host;
+         }
+      </script>
+   </head>
+   <body onload="displayHosts()">
+      <p>Browser call to grpc server.</p>
+      <div>
+         <label for="hosts">Choose an address:</label>
+         <select id="hosts" onchange="serverSelect()"></select>
+         <label for="client_message">Message:</label>
+         <input type="text" id="client_message">
+         <button class="button" onclick="return main()">Call</button>
+      </div>
+      <p id="server_response"></p>
+      <div class="alert" width="500px"; style="display:none;" id="alert">
+         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+         <strong>Type in a message!</strong>
+      </div>
+      <script src="./dist/main.js"></script>
+   </body>
+</html>

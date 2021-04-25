@@ -1,0 +1,48 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: rust-delegates
+  namespace: default
+data:
+  DELEGATES: http://java-clusterip.default.svc.cluster.local:8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rust-deployment
+  labels:
+    app: rust-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rust-pod
+  template:
+    metadata:
+      labels:
+        app: rust-pod
+    spec:
+      containers:
+      - name: rust-container
+        image: ratulb/grpc-rust-debian
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 30031
+        env:
+        - name: DELEGATES
+          valueFrom:
+            configMapKeyRef:
+              name: rust-delegates
+              key: DELEGATES
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rust-clusterip
+spec:
+  selector:
+    app: rust-pod
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 30031

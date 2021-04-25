@@ -1,0 +1,20 @@
+[package]
+name = "rust_grpc"
+version = "0.1.0"
+authors = ["Ratul Buragohain <ratul75@hotmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+prost = "0.7.0"
+tonic = {version="0.4.1",features = ["tls"]}
+tokio = {version="1.4.0",features = ["macros", "rt-multi-thread"]}
+futures = "0.3.14"
+
+[build-dependencies]
+tonic-build = "0.4.1"
+
+[[bin]]
+name="server"
+path="src/server.rs"

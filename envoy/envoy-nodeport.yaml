@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: envoy-proxy-deploy
+  labels:
+    app: envoy-proxy-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: envoy-pod
+  template:
+    metadata:
+      labels:
+        app: envoy-pod
+    spec:
+      containers:
+      - name: envoy-grpc-proxy
+        image: ratulb/envoy-grpc-proxy:v1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 10000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: envoy-service
+  labels:
+    app: envoy-service
+spec:
+  type: NodePort
+  ports:
+  - port: 8080
+    nodePort: 30030
+    targetPort: 10000
+    protocol: TCP
+    name: http
+  selector:
+    app: envoy-pod
+---
