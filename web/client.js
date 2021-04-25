@@ -16,15 +16,14 @@ export default function main() {
 		return false;
 	}
 	var target_cluster = document.getElementById("target_cluster").value;
-	alert(target_cluster);
 	var request = new EchoRequest();
 	request.setMessage(msg);
 	var metadata = {
 		'target_cluster': target_cluster
 	};
 	client.echo(request, metadata, (err, response) => {
-		console.log("Result of Echo : ", response.getMessage())
-		alert(response.getMessage())
+		console.log("Result of Echo : ", response.getMessage());
+		document.getElementById("server_response").innerHTML = response.getMessage();
 	});
 	return true;
 }
