@@ -5,6 +5,9 @@ const {
 const {
 	EchoClient
 } = require("./echo_grpc_web_pb");
+
+const client = new EchoClient('http://34.87.184.201:10000');
+
 export default function main() {
 	var msg = document.getElementById("client_message").value;
 	if (msg === "") {
@@ -12,13 +15,12 @@ export default function main() {
 		alertDiv.style.display = "block";
 		return false;
 	}
-	var selected_host = document.getElementById("hosts").value;
-	alert(selected_host);
+	var target_cluster = document.getElementById("target_cluster").value;
+	alert(target_cluster);
 	var request = new EchoRequest();
 	request.setMessage(msg);
-	var client = new EchoClient(selected_host);
 	var metadata = {
-		'target_cluster': 'rust_echo_svr'
+		'target_cluster': target_cluster
 	};
 	client.echo(request, metadata, (err, response) => {
 		console.log("Result of Echo : ", response.getMessage())

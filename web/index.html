@@ -5,30 +5,22 @@
       <link rel="stylesheet" href="style.css">
       <title>grpc connect - rust, java, web</title>
       <script type = "text/JavaScript">
-         function displayHosts(){
-            var host_select = document.getElementById("hosts");
-            var grpc_hosts = ['http://34.87.184.201:10000'];
-            for(var i = 0; i < grpc_hosts.length; i++) {
-                var host = grpc_hosts[i];
-                var hostNum = i+1;
-                var el = document.createElement("option");
-                el.text = 'host:'+ hostNum;
-                el.value = host;
-                host_select.add(el);
-            }
-         }
-         function serverSelect() {
-           var host = document.getElementById("hosts").value;
-           document.getElementById("server_response").innerHTML = "Selected server address: " + host;
+         function targetSelect() {
+           var target = document.getElementById("target_cluster").value;
+           document.getElementById("server_response").innerHTML = "Target cluster: " + target;
          }
       </script>
    </head>
-   <body onload="displayHosts()">
-      <p>Browser call to grpc server.</p>
+   <body>
+      <p>Send a message to a envoy grpc cluster. If say 'rust' is chosen as upstream target cluster and there is a delegate configured for the receiving endpoint - the call will be handled by the delegate. In case the delegate fails or not configured - call will be handled by the receiving endpoint itself. Communication between the backend endpoints is over grpc - while browser to envoy proxy is over grpc-web.</p>
+      <p> Delegates are configured via configuration while starting the endpoints in stand alone setup or via configmap - if deployed on to a kubernetes cluster. </p>
       <div>
-         <label for="hosts">Choose an address:</label>
-         <select id="hosts" onchange="serverSelect()"></select>
-         <label for="client_message">Message:</label>
+         <label for="target_cluster">Choose a target cluster:</label>
+         <select id="target_cluster" onchange="targetSelect()">
+	   <option value="rust_echo_svr">Rust</option>
+	   <option value="java_echo_svr">Java</option>
+	 </select>
+         <label for="client_message">Message to send:</label>
          <input type="text" id="client_message">
          <button class="button" onclick="return main()">Call</button>
       </div>
