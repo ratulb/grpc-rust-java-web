@@ -2,6 +2,7 @@
 first="$1"
 second=$2
 set cwd=$(pwd)
+source ~/.bashrc
 case "$first" in
   java)
     case "$second" in
