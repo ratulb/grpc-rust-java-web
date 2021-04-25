@@ -18,7 +18,7 @@ export default function main() {
 	request.setMessage(msg);
 	var client = new EchoClient(selected_host);
 	var metadata = {
-		'echo_service': 'echo_service1'
+		'target_cluster': 'rust_echo_svr'
 	};
 	client.echo(request, metadata, (err, response) => {
 		console.log("Result of Echo : ", response.getMessage())

@@ -45,8 +45,22 @@ case "$first" in
         ;;
     esac
     ;;
+  envoy)
+      cd envoy
+      ./run.sh      
+    ;;
+  tomcat)
+      cd web/tomcat
+      ./run.sh      
+    ;;
+
   *)
-    echo "Target not specified - running java server/client/ & rust server/client"
+    echo "Target not specified - running all - envoy/tomcat/rust/java"
+    cd envoy
+    ./run.sh
+    cd ../web/tomcat
+    ./run.sh
+    cd ../../
     cd java/server/
     ./run.sh
     cd ../client/

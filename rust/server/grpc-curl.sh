@@ -13,4 +13,4 @@ server="[::]:10000"
 if [ "$1" != "" ]; then
   server=$1
 fi
-grpcurl -plaintext -import-path ./proto -proto echo.proto -H 'target_cluster:rust_echo_srvr' -d '{"message": "client hello"}'  $server echo.Echo/echo
+grpcurl -plaintext -import-path ./proto -proto echo.proto -H 'target_cluster:rust_echo_svr' -d '{"message": "client hello"}'  $server echo.Echo/echo

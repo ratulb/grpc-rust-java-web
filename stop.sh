@@ -10,8 +10,22 @@ case "$target" in
     cd rust/server/
     ./stop.sh
     ;;
+  envoy)
+    cd envoy
+    ./stop.sh
+    ;;
+  tomcat)
+    cd web/tomcat
+    ./stop.sh
+    ;;
   *)
-    echo "Target not specified - stopping java and rust server"
+    echo "Target not specified - stopping envoy, tomcat, java, rust"
+    cd envoy
+    ./stop.sh
+    cd -
+    cd web/tomcat
+    ./stop.sh
+    cd -
     cd java/server/
     ./stop.sh
     cd ../../rust/server/

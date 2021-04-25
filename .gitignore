@@ -13,3 +13,6 @@ web/node_modules/
 web/package-lock.json
 java/client/target/
 java/server/target/
+web/echo_pb.js
+web/echo_grpc_web_pb.js
+web/tomcat/apache*
