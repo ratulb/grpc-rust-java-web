@@ -12,7 +12,7 @@ curl -sL 'https://getenvoy.io/gpg' | sudo apt-key add -
 # verify the key
 apt-key fingerprint 6FF974DB | grep "5270 CEAC"
 sudo add-apt-repository "deb [arch=amd64] https://dl.bintray.com/tetrate/getenvoy-deb $(lsb_release -cs) stable"
-apt update
+apt update --fix-missing
 sudo apt install -y getenvoy-envoy
 
 envoy --version
