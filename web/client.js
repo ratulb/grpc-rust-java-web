@@ -6,7 +6,7 @@ const {
 	EchoClient
 } = require("./echo_grpc_web_pb");
 
-const client = new EchoClient('http://35.247.167.186:10000');
+const client = new EchoClient('http://34.87.184.201:10000');
 
 export default function main() {
 	var msg = document.getElementById("client_message").value;
@@ -22,17 +22,21 @@ export default function main() {
 		'target_cluster': target_cluster
 	};
 
-        //var client = new EchoClient('http://35.247.167.286:10000');
 	client.echo(request, metadata, (err, response) => {
 		if(err) {
 		        console.log("Server error : ", err);
 		        document.getElementById("server_response").innerHTML = err;
+                       document.getElementById('server_response').className = 'appear';
      
 		}else {
 	        	console.log("Result of Echo : ", response.getMessage());
 		        document.getElementById("server_response").innerHTML = response.getMessage();
+                        document.getElementById('server_response').className = 'appear';
 		}
-	});
+		setTimeout(function(){
+                   document.getElementById('server_response').className = 'disappear';
+                  }, 5000);
+	       });
 	return true;
 }
 

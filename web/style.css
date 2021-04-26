@@ -6,11 +6,22 @@ body {
 p {
   text-align: justify;
   letter-spacing: 2px;
+  opacity:1;
+  transition:opacity 500ms;
+}
+p.appear {
+  background-color: #4CAF50;
+  opacity:1;
+  width: 350px;
+  color: white;
+  padding: 8px; 
+}
+p.disappear {
+  opacity:0;
 }
 .label {
   color: white;
   padding: 8px;
-  /***font-family: Arial;***/
 }
 .success {
   background-color: #4CAF50;
