@@ -8,6 +8,7 @@ if [ ! -e /usr/local/bin/grpcurl ]; then
 
   chmod +x grpcurl
   mv grpcurl /usr/local/bin/
+  rm grpcurl_${version}_linux_x86_64.tar.gz
 fi
 server="[::]:10000"
 if [ "$1" != "" ]; then

@@ -16,18 +16,11 @@ static_resources:
           codec_type: auto
           stat_prefix: ingress_http
           route_config:
-            name: local_route
+            name: grpc_route
             virtual_hosts:
-            - name: local_service
+            - name: grpc_service
               domains: ["*"]
               routes:
-              - match: 
-                  prefix: "/"
-                route:
-                  cluster_header: target_cluster
-                  timeout: 1s
-                  max_stream_duration:
-                    grpc_timeout_header_max: 1s
               - match: 
                   prefix: "/"
                 route:

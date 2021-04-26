@@ -16,6 +16,7 @@ if ! command cargo -v; then
 fi
 
 source ~/.bashrc
+export PATH=$PATH:$HOME/.cargo/bin/cargo
 
 first="$1"
 second=$2

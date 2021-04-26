@@ -8,9 +8,10 @@ if [ ! -e /usr/local/bin/grpcurl ]; then
 
   chmod +x grpcurl
   mv grpcurl /usr/local/bin/
+  rm grpcurl_${version}_linux_x86_64.tar.gz
 fi
-server="[::]:10000"
+server="[::]:31031"
 if [ "$1" != "" ]; then
   server=$1
 fi
-grpcurl -plaintext -import-path ./src/main/proto/ -proto echo.proto -vv -H 'echo_service:echo_service2' -d '{"message": "client hello"}'  $server echo.Echo/echo
+grpcurl -plaintext -import-path ./src/main/proto/ -proto echo.proto -vv -H 'target_cluster:java_echo_svr' -d '{"message": "client hello"}'  $server echo.Echo/echo
