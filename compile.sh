@@ -2,7 +2,7 @@
 first="$1"
 second=$2
 
-if ! command javac -v; then
+if ! command javac --version; then
   sudo apt-get update
   sudo apt-get install -y default-jdk
 fi
