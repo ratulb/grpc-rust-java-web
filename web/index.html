@@ -13,19 +13,19 @@
    </head>
    <body>
       <p>Send a message to a envoy grpc cluster. If say 'rust' is chosen as upstream target cluster and there is a delegate configured for the receiving endpoint - the call will be handled by the delegate. In case the delegate fails or not configured - call will be handled by the receiving endpoint itself. Communication between the backend endpoints is over grpc - while browser to envoy proxy is over grpc-web.</p>
-      <p> Delegates are configured via configuration while starting the endpoints in stand alone setup or via configmap - if deployed on to a kubernetes cluster. </p>
+      <p> Delegates are configured while starting the endpoints in a stand-alone setup or via configmap - if deployed on to a kubernetes cluster. </p>
       <div>
-         <label for="target_cluster">Choose a target cluster:</label>
+         <label for="target_cluster"><span class="label success">Choose a target cluster</span> </label>
          <select id="target_cluster">
 	   <option value="rust_echo_svr">Rust</option>
 	   <option value="java_echo_svr">Java</option>
 	 </select>
-         <label for="client_message">Message to send:</label>
+         <label for="client_message"><span class="label success">Message to send</span></label>
          <input type="text" id="client_message">
-         <button class="button" onclick="return main()">Call</button>
+         <span class="label success" onclick="return main()">Call</span>
       </div>
       <p id="server_response"></p>
-      <div class="alert" width="500px"; style="display:none;" id="alert">
+      <div class="alert" width="300px"; style="display:none;" id="alert">
          <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
          <strong>Type in a message!</strong>
       </div>
