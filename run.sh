@@ -3,6 +3,7 @@ first="$1"
 second=$2
 set cwd=$(pwd)
 source ~/.bashrc
+source "$HOME/.cargo/env"
 case "$first" in
   java)
     case "$second" in
