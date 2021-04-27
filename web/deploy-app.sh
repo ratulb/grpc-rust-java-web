@@ -9,4 +9,3 @@ cp dist/main.js $TOMCAT_HOME/webapps/client/dist/
 cp index.html $TOMCAT_HOME/webapps/client/
 cp favicon.ico $TOMCAT_HOME/webapps/client/
 cp style.css $TOMCAT_HOME/webapps/client/
-

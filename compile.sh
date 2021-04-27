@@ -9,7 +9,7 @@ fi
 if ! command mvn -v; then
   sudo apt-get install -y maven
 fi
-if ! command cargo -v; then
+if ! command cargo -V; then
   curl https://sh.rustup.rs -sSf | sudo sh -s -- -y
   source ~/.bashrc
   sudo apt-get install -y build-essential

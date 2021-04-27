@@ -14,4 +14,4 @@ server="[::]:30031"
 if [ "$1" != "" ]; then
   server=$1
 fi
-grpcurl -plaintext -import-path ./proto -proto echo.proto -d '{"message": "client hello"}'  $server echo.Echo/echo
+grpcurl -plaintext -import-path ./proto -proto echo.proto -d '{"message": "client hello"}' $server echo.Echo/echo
