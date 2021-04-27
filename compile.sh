@@ -17,6 +17,7 @@ fi
 
 source ~/.bashrc
 export PATH=$PATH:$HOME/.cargo/bin/cargo
+source "$HOME/.cargo/env"
 
 first="$1"
 second=$2
