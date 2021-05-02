@@ -25,5 +25,6 @@ Containerizing the rust and java grpc implementations and the envoy proxy:
 4. For java - Dockerfile, image build commands and service  yaml file is located at: https://github.com/ratulb/grpc-rust-java-web/tree/main/java/server
 5. The NodePort service definition for envoy proxy is: https://github.com/ratulb/grpc-rust-java-web/blob/main/envoy/envoy-nodeport.yaml
 
+Note: To quickly launch a kubernetetes cluster in a matter of minutes - have a look at https://github.com/ratulb/k8s-easy-install.
 
 
