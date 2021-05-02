@@ -6,8 +6,7 @@
       <title>grpc connect - rust, java, web</title>
    </head>
    <body>
-      <p>Send a message to a grpc cluster. If say 'rust' is chosen as target cluster and there is a delegate configured for the receiving endpoint(implemented in java ) - the call will be handled by the delegate. In case the delegate fails or not configured - call will be handled by the receiving endpoint(implemented in rust) itself. Communication between the backend endpoints is over grpc - while browser to envoy proxy is over grpc-web.</p>
-      <p> Delegates are configured while starting the endpoints in a stand-alone setup or via configmap - if deployed on to a kubernetes cluster. </p>
+      <p>Send a message to a grpc server. Call to rust grpc server would be delegated to java and vice versa. </p>
       <div>
          <label for="target_cluster"><span class="label success">Choose a target cluster</span> </label>
          <select id="target_cluster">
