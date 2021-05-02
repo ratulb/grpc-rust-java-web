@@ -4,9 +4,8 @@ Connect rust, java and the browser using rust grpc framework tonic, java grpc an
 
 1) Clone this repository to a ubuntu machine(This has been tested in buster and various flavors of ubuntu).
 2) Run ./compile.sh - from the root directory. This would compile rust and java client and server implementations.
-3) Next we can run "./run.sh java server" - to run java grpc server.
-4) We can run "./run.sh java client" - to run the java grpc client.
-5) If both java and rust grpc servers are running - calls to java server would be delegated to rust and vice versa.
+3) Navigate to ./envoy folder and run ./setup.sh - this would install envoy proxy server locally.
+4) Navigate to ./web folder and run ./setup.sh. This would install tomcat server locally and setup grpc-web app.
+5) Navigate back to the root folder and run "./run.sh" - this would run rust and java grpc servers, envoy proxy and tomcat webserver.
+6) Browse the grpc-web application at http://localhost:8080/client
 
-Access the grpc services from browser:
-7) Post compilation - navigate to  
