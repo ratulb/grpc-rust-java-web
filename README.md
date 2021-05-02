@@ -7,3 +7,6 @@ Connect rust, java and the browser using rust grpc framework tonic, java grpc an
 3) Next we can run "./run.sh java server" - to run java grpc server.
 4) We can run "./run.sh java client" - to run the java grpc client.
 5) If both java and rust grpc servers are running - calls to java server would be delegated to rust and vice versa.
+
+Access the grpc services from browser:
+7) Post compilation - navigate to  
