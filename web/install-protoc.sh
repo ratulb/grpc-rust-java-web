@@ -18,4 +18,3 @@ if [ ! -f /usr/local/bin/protoc-gen-grpc-web ]; then
   chmod +x protoc-gen-grpc-web-1.2.1-linux-x86_64
   sudo mv protoc-gen-grpc-web-1.2.1-linux-x86_64 /usr/local/bin/protoc-gen-grpc-web
 fi
-#sudo npm install -D webpack-cli

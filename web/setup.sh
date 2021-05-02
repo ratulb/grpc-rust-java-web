@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-./setup-node-wp.sh
 ./install-protoc.sh
+./gen-js-proto.sh
+./setup-node-wp.sh
 cd tomcat
 ./setup.sh
 cd -
-./gen-js-proto.sh
 ./deploy-app.sh

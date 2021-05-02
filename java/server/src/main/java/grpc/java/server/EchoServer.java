@@ -112,7 +112,6 @@ public class EchoServer extends EchoImplBase {
                 if(delegateResponse != null)
 		    break;
            }catch(Exception e) {
-		e.printStackTrace(System.err);
 		continue;
 	   }
     	}

@@ -4,12 +4,6 @@
       <meta charset="UTF-8">
       <link rel="stylesheet" href="style.css">
       <title>grpc connect - rust, java, web</title>
-      <script type = "text/JavaScript">
-         function targetSelect() {
-           var target = document.getElementById("target_cluster").value;
-           document.getElementById("server_response").innerHTML = "Target cluster: " + target;
-         }
-      </script>
    </head>
    <body>
       <p>Send a message to a grpc cluster. If say 'rust' is chosen as target cluster and there is a delegate configured for the receiving endpoint(implemented in java ) - the call will be handled by the delegate. In case the delegate fails or not configured - call will be handled by the receiving endpoint(implemented in rust) itself. Communication between the backend endpoints is over grpc - while browser to envoy proxy is over grpc-web.</p>
