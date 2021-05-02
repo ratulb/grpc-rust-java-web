@@ -6,7 +6,7 @@ const {
 	EchoClient
 } = require("./echo_grpc_web_pb");
 
-const client = new EchoClient('http://34.87.158.31:10000');
+const client = new EchoClient('http://127.0.0.1:10000');
 
 export default function main() {
 	var msg = document.getElementById("client_message").value;
